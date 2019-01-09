@@ -5,8 +5,9 @@ Hope the original author(s) do not mind much if I use it for myself ;-)
 
 ## Why
 
-I want to learn JavaScript and technics to write right code.
+I want to learn JavaScript and technics to write good code. Plus get used to use *standard*.
 
 ## What (data structures)
 
 - Tree
+- Queue
