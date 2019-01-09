@@ -4,28 +4,18 @@
 const assert = require('assert')
 const Tree = require('../src/Tree.js')
 
-describe('Tree', () => {
-  it('test _root', () => {
-    const tree = new Tree('ONE')
-    assert(tree._root, 'ONE')
-  })
+function Node (data) {
+  this.data = data
+  this.parent = null
+  this.children = []
+}
 
+describe('Tree', () => {
   it('Traverse the tree with depth-first search', () => {
     // TODO: can it be done better?
     const tree = new Tree('one')
     let tempArr = []
 
-    /*
-     * Do I need Node object definition here? Can I make it simple?
-     *
-     * Node object is defined somewhere else as private.
-     * Here I need it
-     */
-    function Node (data) {
-      this.data = data
-      this.parent = null
-      this.children = []
-    }
     tree._root.children.push(new Node('two'))
     tree._root.children[0].parent = tree
 
