@@ -1,5 +1,6 @@
 'use strict'
 
 module.exports = {
-  Tree: require('./src/Tree.js')
+  Queue:    require('./src/Queue.js'),
+  Tree:     require('./src/Tree.js')
 }
