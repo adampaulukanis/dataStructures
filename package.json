@@ -1,0 +1,27 @@
+{
+  "name": "datastructures",
+  "version": "1.0.0",
+  "description": "Simple data structures",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "./node_modules/standard/bin/cmd.js && mocha tests/*"
+  },
+  "scripts": {
+    "test": "mocha tests/*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adam17/dataStructures.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adam17/dataStructures/issues"
+  },
+  "homepage": "https://github.com/adam17/dataStructures#readme",
+  "devDependencies": {
+    "standard": "^12.0.1",
+    "mocha": "^5.2.0"
+  }
+}
