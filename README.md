@@ -10,3 +10,4 @@ I want to learn JavaScript and technics to write right code.
 ## What (data structures)
 
 - Tree
+- Queue
