@@ -23,7 +23,7 @@ Queue.prototype.enqueue = function (data) {
     }
     n.next = node
   }
-  this.size += 1
+  this.size++
   return node
 }
 

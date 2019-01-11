@@ -8,7 +8,7 @@
     "test": "./node_modules/standard/bin/cmd.js && mocha tests/*"
   },
   "scripts": {
-    "test": "mocha tests/*"
+    "test": "mocha tests/*.js"
   },
   "repository": {
     "type": "git",

@@ -1,8 +1,8 @@
 /* global describe, it */
 'use strict'
 
+const Queue = require('..').Queue
 const assert = require( 'assert' )
-const Queue = require ( '../src/Queue.js' )
 
 function Node ( data ) {
   this.data = data

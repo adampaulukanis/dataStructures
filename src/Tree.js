@@ -1,5 +1,8 @@
-// TODO: implement traverseBF
 'use strict'
+
+//const Queue = require('..').Queue
+const Queue = require('./Queue.js')
+
 
 function Node (data) {
   this.data = data
@@ -22,7 +25,17 @@ Tree.prototype.traverseDF = function (callback) {
 }
 
 Tree.prototype.traverseBF = function (callback) {
-  throw Error ( 'Not implemented yet!' )
+  let queue = new Queue()
+  let counter = 0
+  queue.enqueue(this._root)
+  let currentTree = queue.dequeue()
+  while (currentTree) {
+    for (let i=0, length=currentTree.data.children.length; i<length; i++) {
+      queue.enqueue(currentTree.data.children[i])
+    }
+    callback(currentTree)
+    currentTree = queue.dequeue()
+  }
 }
 
 module.exports = Tree
