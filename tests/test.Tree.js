@@ -88,4 +88,26 @@ describe('Tree', () => {
     assert.strictEqual( tempArr.includes( 'seven' ),  true )
     assert.strictEqual( tempArr.includes( 'seven123' ),  false )
   })
+  it('add a node', () => {
+    let tempTree = new Tree('Alfabet')
+    tempTree.add('A', 'Alfabet', tempTree.traverseDF)
+    assert.throws(() => {
+      tempTree.add('B', 'AA', tempTree.traverseDF)
+    }, /^Error: Cannot add node to a non-existing parent\.$/
+    , 'Where is thrown Error?')
+    assert.strictEqual(tempTree._root.data, 'Alfabet')
+    assert.strictEqual(tempTree._root.children.length, 1)
+    // check the child of the root
+  })
+  it('remove node', () => {
+    let tempTree = new Tree('A')
+
+    assert.throws(() => {
+      tempTree.remove('PARENT DOES NOT EXIST', 'DOES NOT EXIST', tempTree.traverseDF)
+    }, /^Error: Parent does not exist\./)
+
+    assert.throws(() => {
+      tempTree.remove('DOES NOT EXIST', 'A', tempTree.traverseDF)
+    }, /^Error: Node to remove does not exist\./)
+  })
 })
