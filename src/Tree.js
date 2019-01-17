@@ -1,6 +1,6 @@
 'use strict'
 
-//const Queue = require('..').Queue
+// const Queue = require('..').Queue
 const Queue = require('./Queue.js')
 
 function Node (data) {
@@ -14,9 +14,9 @@ function Tree (data) {
   this._root = node
 }
 
-function findIndex ( arr, data ) {
+function findIndex (arr, data) {
   let index
-  for (let i=0; i<arr.length;i++) {
+  for (let i = 0; i < arr.length; i++) {
     if (arr[i].data === data) {
       index = 1
     }
@@ -35,11 +35,11 @@ Tree.prototype.traverseDF = function (callback) {
 
 Tree.prototype.traverseBF = function (callback) {
   let queue = new Queue()
-  let counter = 0
+  // let counter = 0
   queue.enqueue(this._root)
   let currentTree = queue.dequeue()
   while (currentTree) {
-    for (let i=0, length=currentTree.data.children.length; i<length; i++) {
+    for (let i = 0, length = currentTree.data.children.length; i < length; i++) {
       queue.enqueue(currentTree.data.children[i])
     }
     callback(currentTree)
@@ -65,14 +65,13 @@ Tree.prototype.add = function (data, toData, traversal) {
   if (parent) {
     parent.children.push(child)
     child.parent = parent
-  }
-  else {
-    throw new Error ('Cannot add node to a non-existing parent.')
+  } else {
+    throw new Error('Cannot add node to a non-existing parent.')
   }
 }
 
 Tree.prototype.remove = function (data, fromData, traversal) {
-  let tree = this
+  // let tree = this
   let parent = null
   let childToRemove = null
   let index
@@ -86,12 +85,10 @@ Tree.prototype.remove = function (data, fromData, traversal) {
     index = findIndex(parent.children, data)
     if (index === undefined) {
       throw new Error('Node to remove does not exist.')
-    }
-    else {
+    } else {
       childToRemove = parent.children.splice(index, 1)
     }
-  }
-  else {
+  } else {
     throw new Error('Parent does not exist.')
   }
   return childToRemove

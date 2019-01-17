@@ -1,6 +1,6 @@
 'use strict'
 
-function Node ( data ) {
+function Node (data) {
   this.data = data
   this.next = null
 }
@@ -11,12 +11,11 @@ function Queue () {
 }
 
 Queue.prototype.enqueue = function (data) {
-  let node = new Node ( data )
+  let node = new Node(data)
 
   if (!this.first) {
     this.first = node
-  }
-  else {
+  } else {
     let n = this.first
     while (n.next) {
       n = n.next

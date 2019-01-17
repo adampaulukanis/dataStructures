@@ -5,10 +5,10 @@
   "main": "index.js",
   "directories": {
     "lib": "lib",
-    "test": "./node_modules/standard/bin/cmd.js && mocha tests/*"
+    "test": "tests"
   },
   "scripts": {
-    "test": "mocha tests/*.js"
+    "test": "./node_modules/standard/bin/cmd.js && mocha tests/*.js"
   },
   "repository": {
     "type": "git",
