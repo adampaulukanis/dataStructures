@@ -1,5 +1,7 @@
 # Hello
 
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+
 I found these data structures somewhere on the web. Sorry about no-credit for them.
 Hope the original author(s) do not mind much if I use it for myself ;-)
 
