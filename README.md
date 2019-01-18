@@ -14,6 +14,7 @@ I want to learn JavaScript and technics to write good code. Plus get used to use
 - Tree
 - Queue
 - Singly-Linked List
+- Doubly-Linked List
 
 ## How to use it
 
