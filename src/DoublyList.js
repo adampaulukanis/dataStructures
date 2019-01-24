@@ -65,6 +65,13 @@ DoublyList.prototype.remove = function (position) {
     throw new Error(messages.ENOEXIST)
   }
 
+  if (position) {
+    return {
+      data: this.head.data,
+      id: new Date()
+    }
+  }
+
   // 2nd use-case: the first node is removed
   if (position === 1) {
     this.head = currentNode.next

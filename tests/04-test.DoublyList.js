@@ -61,6 +61,7 @@ describe('Doubly-Linked List', () => {
       assert.strictEqual(dlist.searchNodeAt(i + 1).next.data, arrOfNumbersInRussian[i])
     }
   })
+
   it('Removes a node from a list', () => {
     let dlist = new DoublyList()
     for (let i = 1; i < 10; i++) {
@@ -87,6 +88,8 @@ describe('Doubly-Linked List', () => {
     )
     let dlist2 = new DoublyList()
     let tempString = 'only me, just text :-)'
-    assert.strictEqual(dlist2.remove(1).data, tempString)
+    dlist2.add(tempString)
+    let tempObj = dlist2.remove(1)
+    assert.strictEqual(tempObj.data, tempString)
   })
 })
