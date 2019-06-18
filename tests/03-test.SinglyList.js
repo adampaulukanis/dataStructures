@@ -4,13 +4,14 @@
 const assert = require('assert')
 const SinglyList = require('..').SinglyList
 
-describe('Singly-Linked List', () => {
-  it('Creates a singly-linked list', () => {
+describe('Singly-Linked List', function () {
+  it('Creates a singly-linked list', function () {
     let slist = new SinglyList()
     assert.strictEqual(slist._length, 0, 'Should be 0!')
     assert.strictEqual(slist.head, null, 'Should be null')
   })
-  it('Adds a node', () => {
+
+  it('Adds a node', function () {
     let slist = new SinglyList()
     assert.strictEqual(slist.add('value').data, 'value', 'Output should be the same as input!')
     assert.strictEqual(slist._length, 1, 'Should be 1!')
@@ -21,7 +22,8 @@ describe('Singly-Linked List', () => {
     assert.strictEqual(slist.head.next.data, d)
     assert.strictEqual(slist.head.next.next, null)
   })
-  it('Searches for a node at n-position in list', () => {
+
+  it('Searches for a node at n-position in list', function () {
     let slist = new SinglyList()
     assert.strictEqual(slist._length, 0)
     // list is empty
@@ -37,7 +39,8 @@ describe('Singly-Linked List', () => {
     assert.strictEqual(slist.searchNodeAt(1).data, 'lorem ipsum')
     assert.strictEqual(slist.searchNodeAt(2).data, 'lorem')
   })
-  it('Removes a node from list', () => {
+
+  it('Removes a node from list', function () {
     let slist = new SinglyList()
     // remove node at position 0
     assert.throws(() => {

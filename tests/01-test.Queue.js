@@ -4,14 +4,14 @@
 const Queue = require('..').Queue
 const assert = require('assert')
 
-describe('Queue', () => {
-  it('new instance of Queue should be empty', () => {
+describe('Queue', function () {
+  it('new instance of Queue should be empty', function () {
     let q = new Queue()
     assert.strictEqual(q.first, null)
     assert.strictEqual(q.size, 0)
   })
 
-  it('enqueue few elements', () => {
+  it('enqueue few elements', function () {
     let q = new Queue()
     q.enqueue('one')
     q.enqueue('two')
@@ -20,13 +20,13 @@ describe('Queue', () => {
     assert.strictEqual(q.first.next.data, 'two')
   })
 
-  it('dequeue empty queue', () => {
+  it('dequeue empty queue', function () {
     let q = new Queue()
     q.dequeue()
     assert.strictEqual(q.dequeue(), null)
   })
 
-  it('dequeue everything, should return empty queue', () => {
+  it('dequeue everything, should return empty queue', function () {
     let q = new Queue()
     q.enqueue('one')
     assert.strictEqual(q.dequeue().data, 'one')

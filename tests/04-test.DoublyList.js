@@ -4,14 +4,15 @@
 const assert = require('assert')
 const DoublyList = require('..').DoublyList
 
-describe('Doubly-Linked List', () => {
-  it('Creates a list', () => {
+describe('Doubly-Linked List', function () {
+  it('Creates a list', function () {
     let dlist = new DoublyList()
     assert.strictEqual(dlist._length, 0)
     assert.strictEqual(dlist.head, null)
     assert.strictEqual(dlist.tail, null)
   })
-  it('Adds a node', () => {
+
+  it('Adds a node', function () {
     let dlist = new DoublyList()
     let d = new Date()
     // add the first value
@@ -24,7 +25,8 @@ describe('Doubly-Linked List', () => {
       dlist.add(i)
     }
   })
-  it('Searches for a node at n-position in list', () => {
+
+  it('Searches for a node at n-position in list', function () {
     let dlist = new DoublyList()
     let nodeOne = dlist.add('one')
     assert.throws(
@@ -62,7 +64,7 @@ describe('Doubly-Linked List', () => {
     }
   })
 
-  it('Removes a node from a list', () => {
+  it('Removes a node from a list', function () {
     let dlist = new DoublyList()
     for (let i = 1; i < 10; i++) {
       dlist.add(i)

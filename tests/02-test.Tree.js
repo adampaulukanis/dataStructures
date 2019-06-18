@@ -4,14 +4,15 @@
 const assert = require('assert')
 const Tree = require('..').Tree
 
+// TODO: is it really needed here as is?
 function Node (data) {
   this.data = data
   this.parent = null
   this.children = []
 }
 
-describe('Tree', () => {
-  it('Traverse the tree with depth-first search', () => {
+describe('Tree', function () {
+  it('Traverse the tree with depth-first search', function () {
     // { create a tree
     let tree = new Tree('one')
     let tempArr = []
@@ -49,7 +50,7 @@ describe('Tree', () => {
     assert.strictEqual(tempArr.includes('seven'), true)
   })
 
-  it('Traverse the tree with breadth-first search', () => {
+  it('Traverse the tree with breadth-first search', function () {
     // { create a tree
     let tree = new Tree('one')
     let tempArr = []
@@ -88,7 +89,8 @@ describe('Tree', () => {
     assert.strictEqual(tempArr.includes('seven'), true)
     assert.strictEqual(tempArr.includes('seven123'), false)
   })
-  it('add a node', () => {
+
+  it('add a node', function () {
     let tempTree = new Tree('Alfabet')
     tempTree.add('A', 'Alfabet', tempTree.traverseDF)
     assert.throws(() => {
@@ -97,9 +99,10 @@ describe('Tree', () => {
     , 'Where is thrown Error?')
     assert.strictEqual(tempTree._root.data, 'Alfabet')
     assert.strictEqual(tempTree._root.children.length, 1)
-    // check the child of the root
+    // TODO: check the child of the root
   })
-  it('remove node', () => {
+
+  it('remove node', function () {
     let tempTree = new Tree('A')
 
     assert.throws(() => {
