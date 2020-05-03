@@ -8,7 +8,8 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "./node_modules/standard/bin/cmd.js && mocha tests/*.js"
+    "test": "node tests/test.Queue.js",
+    "pretest": "./node_modules/standard/bin/cmd.js *.js tests/*.js"
   },
   "repository": {
     "type": "git",
@@ -21,7 +22,11 @@
   },
   "homepage": "https://github.com/adam17/dataStructures#readme",
   "devDependencies": {
-    "standard": "^12.0.1",
-    "mocha": "^5.2.0"
+    "standard": "^12.0.1"
+  },
+  "dependencies": {
+    "acorn": "^7.1.1",
+    "minimist": ">=0.2.1",
+    "nodemon": "^2.0.3"
   }
 }
