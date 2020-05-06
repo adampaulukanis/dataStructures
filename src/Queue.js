@@ -1,56 +1,59 @@
 'use strict'
 
-class Node {
-  constructor (data) {
-    this.data = data
-    this.next = null
+const Node = require('./Node.js')
+
+class Queue {
+  #first = null;
+  #size;
+  constructor () {
+    this.#size = 0
   }
-}
 
-function Queue () {
-  this.first = null
-  this.size = 0 // should be private, read only? this.#size
-}
+  /* Gets the size of the queue */
+  get size () {
+    return this.#size
+  }
 
-/* adds an item onto the top of the stack */
-Queue.prototype.enqueue = function (data) {
-  let node = new Node(data)
-  if (!this.first) {
-    this.first = node
-  } else {
-    let n = this.first
-    while (n.next) {
-      n = n.next
+  /* adds an item onto the top of the stack */
+  enqueue (data) {
+    let node = new Node(data)
+    if (!this.#first) {
+      this.#first = node
+    } else {
+      let n = this.#first
+      while (n.next) {
+        n = n.next
+      }
+      n.next = node
     }
-    n.next = node
+    ++this.#size
+    return node
   }
-  ++this.size
-  return node
-}
 
-/* returns and removes the top element */
-Queue.prototype.dequeue = function () {
-  let temp = this.first
-  if (!temp) {
-    return null
+  /* returns and removes the top element */
+  dequeue () {
+    let temp = this.#first
+    if (!temp) {
+      return null
+    }
+    this.#first = this.#first.next
+    --this.#size
+    return temp
   }
-  this.first = this.first.next
-  --this.size
-  return temp
-}
 
-/* tests if the stack is empty */
-Queue.prototype.isEmpty = function () {
-  return this.first === null
-}
-
-/* removes all elements */
-Queue.prototype.clear = function () {
-  while (this.first) {
-    this.first = this.first.next
-    --this.size
+  /* tests if the stack is empty */
+  isEmpty () {
+    return this.#first == null
   }
-  return this.size === 0
-}
+
+  /* removes all elements */
+  clear () {
+    while (this.#first) {
+      this.#first = this.#first.next
+      --this.#size
+    }
+    return this.#size === 0
+  }
+} // End of Queue
 
 module.exports = Queue

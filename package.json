@@ -8,7 +8,7 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "node tests/test.Queue.js",
+    "test": "node ./tests/test.Node.js && node ./tests/test.Queue.js",
     "pretest": "./node_modules/standard/bin/cmd.js *.js tests/*.js"
   },
   "repository": {
