@@ -11,7 +11,9 @@ I want to learn JavaScript and technics to write good code. Plus get used to use
 
 ## What data structures I have:
 
+- Node
 - Queue
+- Stack
 
 ## How to use it
 
