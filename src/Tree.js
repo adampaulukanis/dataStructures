@@ -18,7 +18,7 @@ function findIndex (arr, data) {
   let index
   for (let i = 0; i < arr.length; i++) {
     if (arr[i].data === data) {
-      index = 1
+      index = i
     }
   }
   return index
