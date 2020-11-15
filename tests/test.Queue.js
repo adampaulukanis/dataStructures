@@ -1,46 +1,59 @@
-'use strict'
+'use strict';
 
-const Queue = require('..').Queue
-const assert = require('assert').strict
+const { Queue } = require('..');
+const assert = require('assert').strict;
 
-// New instance should be empty
-let q = new Queue()
-assert.strictEqual(q instanceof Queue, true)
-assert.strictEqual(q.size, 0)
+describe('testing Queue', function(){
+  let q;
 
-// Add something to the queue
-// and check if enqueue returns the proper node
-let one = q.enqueue('one')
-assert.strictEqual(one.data, 'one')
-assert.strictEqual(one.next == null, true)
-assert.strictEqual(q.size, 1)
-let two = q.enqueue('two')
-assert.strictEqual(two.data, 'two')
-assert.strictEqual(one.next.data, 'two')
-assert.strictEqual(one.next == null, false)
-assert.strictEqual(two.next == null, true)
-assert.strictEqual(q.size, 2)
+  beforeEach(function(){
+    q = new Queue();
+  });
 
-// And now remove something from the queue
-// Returns and removes the top element
-let wasTopElement = q.dequeue()
-assert.strictEqual(q.size, 1)
-assert.strictEqual(wasTopElement.data, 'one')
+  afterEach(function(){
+    q = null;
+  });
 
-// Test if the stock is empty
-assert.strictEqual(q.isEmpty(), false)
-q.dequeue() // it should be now empty
-assert.strictEqual(q.isEmpty(), true)
-assert.strictEqual(q.size, 0)
+  it('new instance should be empty (size)', function(){
+    assert(q.size === 0);
+  });
 
-// Test clear function
-q.enqueue('adam')
-assert.strictEqual(q.size, 1)
-q.enqueue('kasia')
-assert.strictEqual(q.size, 2)
-assert.strictEqual(q.clear(), true) // success in clearing the queue
-assert.strictEqual(q.size, 0)
-assert.strictEqual(q.isEmpty(), true)
+  it('adds to queue (enqueue)', function(){
+    q.enqueue('one');
+    assert(q.size, 1);
+    q.enqueue('two');
+    assert(q.size, 2);
+  });
 
-// End of file
-console.log('Test Queue OK')
+  it('returns and removes the top element (dequeue)', function(){
+    q.enqueue('one');
+    q.enqueue('two');
+    assert(q.size, 2);
+    q.dequeue();
+    assert(q.size, 1);
+  });
+
+  it('is empty?', function(){
+    q.enqueue('one');
+    assert(q.isEmpty() === false);
+    q.dequeue(); // it should be empty now
+    assert(q.isEmpty() === true);
+    assert(q.size === 0);
+  });
+
+  it('clears the queue (clear)', function(){
+    q.enqueue('adam');
+    assert(q.size, 1);
+    q.enqueue('ewa');
+    assert(q.size, 2);
+    assert(q.clear() === true); // success in clearing the queue
+    assert(q.size === 0);
+    assert(q.isEmpty() === true);
+  });
+
+  it('displays queue (toString)', function(){
+    q.enqueue('adam');
+    q.enqueue('ewa');
+    assert(q.toString() === 'adam ewa');
+  });
+});

@@ -1,96 +1,103 @@
-'use strict'
+'use strict';
 
-const message = {
-  EINVPOS: 'Failure: non-existent node in this list.'
+const Node = require('./Node.js');
+
+const checkPosition = function(pos, max){
+	if (pos < 1 || pos > max)
+		throw new Error('wrong pos parameter');
 }
 
-function Node (data) {
-  this.data = data
-  this.next = null
-}
+module.exports = class SinglyList{
+	#length = 0;
+	#head = null;
 
-function SinglyList () {
-  this._length = 0
-  this.head = null
-}
+	get size(){
+		return this.#length;
+	}
 
-SinglyList.prototype.add = function (value) {
-  let node = new Node(value)
-  let currentNode = this.head
+	isEmpty(){
+		return this.#length === 0;
+	}
 
-  // 1st use-case: an empty list
-  if (!currentNode) {
-    this.head = node
-    this._length++
+	toString(){
+		let str = '';
+		let n = this.#head;
+		if (!n) return str; // empty list
+		str += n.data;
+		while (n.next){
+			n = n.next;
+			str += `->${n.data}`;
+		}
+		return str;
+	}
 
-    return node
-  }
+	/**
+	 * insert(data) when only one parameter
+	 * insert(pos, data)
+	 */
+	insert(pos, data){
+		let count = 1;
+		let currentNode = this.#head;
+		let node;
+		let oldNode;
 
-  // 2nd use-case: a non-empty list
-  while (currentNode.next) {
-    currentNode = currentNode.next
-  }
+		if (arguments.length < 2){ // no pos argument
+			data = pos; // this is needed because there is only one argument provided!
+			node = new Node(data);
 
-  currentNode.next = node
-  this._length++
+			// empty list
+			if (!currentNode){
+				this.#head = node;
+				++this.#length;
+				return node;
+			}
 
-  return node
-}
+			// now not empty list
+			while (currentNode.next){
+				currentNode = currentNode.next;
+			}
+			currentNode.next = node;
+			++this.#length;
+			return node;
+		}
 
-SinglyList.prototype.searchNodeAt = function (position) {
-  let currentNode = this.head
-  let length = this._length
-  let count = 1
+		checkPosition(pos, this.size);
+		// insertAtPosition
+		while (count < pos){
+			currentNode = currentNode.next;
+			++count;
+		}
 
-  // 1st use-case: an invalid position
-  if (length === 0 || position < 1 || position > length) {
-    throw new Error(message.EINVPOS)
-  }
+		node = new Node(data);
+		currentNode.data = node.data;
+		return currentNode;
+	}
 
-  // 2nd use-case: a valid position
-  while (count < position) {
-    currentNode = currentNode.next
-    count++
-  }
-  return currentNode
-}
+	searchAt(pos){
+		checkPosition(pos, this.size);
+		let currentNode = this.#head;
+		if (pos === 1) return currentNode;
+		for (let i = 1; i < pos; ++i){
+			currentNode = currentNode.next;
+		}
+		return currentNode;
+	}
 
-SinglyList.prototype.remove = function (position) {
-  let currentNode = this.head
-  let length = this._length
-  let count = 0
-  let beforeNodeToDelete = null
-  let nodeToDelete = null
-  let deletedNode = null
-
-  // 1st use-case: an invalid position
-  if (position < 1 || position > length) {
-    throw new Error(message.EINVPOS)
-  }
-
-  // 2nd use-case: the first node is removed
-  if (position === 1) {
-    this.head = currentNode.next
-    deletedNode = currentNode
-    currentNode = null
-    this._length--
-
-    return deletedNode
-  }
-
-  // 3rd use-case: any other node is to be removed
-  while (count < position) {
-    beforeNodeToDelete = currentNode
-    nodeToDelete = currentNode
-    currentNode = currentNode.next
-    count++
-  }
-  beforeNodeToDelete.next = nodeToDelete.next
-  deletedNode = nodeToDelete
-  nodeToDelete = null
-  this._length--
-
-  return deletedNode
-}
-
-module.exports = SinglyList
+	removeAt(pos){
+		checkPosition(pos, this.size);
+		let currentNode = this.#head;
+		let prevNode;
+		if (pos === 1){
+			--this.#length;
+			this.#head = currentNode.next;
+			return currentNode;
+		}
+		for (let i = 1; i < pos; ++i){
+			prevNode = currentNode;
+			currentNode = currentNode.next;
+		}
+		prevNode.next = currentNode.next;
+		--this.#length;
+		return currentNode;
+	}
+};

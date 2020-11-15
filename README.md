@@ -1,19 +1,21 @@
 # Hello
 
-[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
-
 I found these data structures somewhere on the web. Sorry about no-credit for them.
 Hope the original author(s) do not mind much if I use it for myself ;-)
 
 ## Why
 
-I want to learn JavaScript and technics to write good code. Plus get used to use *standard*.
+I want to learn JavaScript and technics to write good code.
 
 ## What data structures I have:
 
 - Node
 - Queue
+- Priority Queue
 - Stack
+- Tree
+- SinglyList
+- DoublyList
 
 ## How to use it
 
@@ -57,3 +59,6 @@ Linking /usr/local/Cellar/node/14.1.0... 453 symlinks created
 $ node -v
 v14.1.0
 ```
+
+### SinglyList members
+`size, isEmpty(), toString(), insert(data), insert(pos, data), searchAt(pos), removeAt(pos)`

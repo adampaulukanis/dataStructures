@@ -8,8 +8,7 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "mocha tests/*.js",
-    "pretest": "./node_modules/standard/bin/cmd.js *.js tests/*.js"
+    "test": "mocha tests/*.js"
   },
   "repository": {
     "type": "git",

@@ -1,59 +1,69 @@
-'use strict'
+'use strict';
 
-const Node = require('./Node.js')
+const Node = require('./Node.js');
 
-class Queue {
+class Queue{
   #first = null;
   #size;
-  constructor () {
-    this.#size = 0
+  constructor(){
+    this.#size = 0;
   }
 
-  /* Gets the size of the queue */
-  get size () {
-    return this.#size
+  get size(){
+    return this.#size;
   }
 
-  /* adds an item onto the top of the stack */
-  enqueue (data) {
-    let node = new Node(data)
+  /* adds an item to the top of the stack */
+  enqueue(data){
+    let node = new Node(data);
     if (!this.#first) {
-      this.#first = node
+      this.#first = node;
     } else {
-      let n = this.#first
+      let n = this.#first;
       while (n.next) {
-        n = n.next
+        n = n.next;
       }
-      n.next = node
+      n.next = node;
     }
-    ++this.#size
-    return node
+    ++this.#size;
+    return node;
   }
 
   /* returns and removes the top element */
-  dequeue () {
-    let temp = this.#first
+  dequeue(){
+    let temp = this.#first;
     if (!temp) {
-      return null
+      return null;
     }
-    this.#first = this.#first.next
-    --this.#size
-    return temp
+    this.#first = this.#first.next;
+    --this.#size;
+    return temp;
   }
 
-  /* tests if the stack is empty */
-  isEmpty () {
-    return this.#first == null
+  isEmpty(){
+    return this.#first == null;
   }
 
   /* removes all elements */
-  clear () {
+  clear(){
     while (this.#first) {
-      this.#first = this.#first.next
-      --this.#size
+      this.#first = this.#first.next;
+      --this.#size;
     }
-    return this.#size === 0
+    return this.#size === 0;
   }
-} // End of Queue
 
-module.exports = Queue
+  toString(){
+    let str = '';
+    let n = this.#first;
+    if (!n) return str; // when the queue is empty
+    str = n.data;
+    while (n.next) {
+      n = n.next;
+      str += ` ${n.data}`;
+    }
+    return str;
+  }
+};
+
+module.exports = Queue;

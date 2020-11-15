@@ -1,13 +1,9 @@
 'use strict'
 
+const Node = require('./Node.js');
+
 const messages = {
   ENOEXIST: 'Failure: non-existing node in list.'
-}
-
-function Node (data) {
-  this.data = data
-  this.previous = null
-  this.next = null
 }
 
 function DoublyList () {

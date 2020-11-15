@@ -1,40 +1,51 @@
-'use strict'
+'use strict';
 
-const assert = require('assert').strict
-const Stack = require('../src/Stack')
+const assert = require('assert').strict;
+const Stack = require('../src/Stack');
 
-let bookStack = new Stack()
-let emptyStack = new Stack()
+describe('testing Stack', function(){
+  let stack;
 
-const sBook1 = 'Book 1 - Title'
-const sBook2 = 'Gal Anonim - Moja Bukwica'
+  beforeEach(function(){
+    stack = new Stack();
+  });
 
-// { Add an item onto the top of the stack
-assert.deepEqual(bookStack.push(sBook1), [sBook1])
-assert.deepEqual(bookStack.push(sBook2), [sBook1, sBook2])
-// } Add an item onto the top of the stack
+  afterEach(function(){
+    stack = null;
+  });
 
-// { Return and remove the top element
-assert.deepEqual(emptyStack.pop(), undefined)
-assert.deepEqual(bookStack.pop(), sBook1)
-// } Return and remove the top element
+  it('displays stack --- now empty', function(){
+    assert(stack.toString() === '');
+  });
 
-// { Return the top without removing
-assert.deepEqual(bookStack.peek(), sBook2)
-assert.deepEqual(emptyStack.peek(), undefined)
-// } Return the top without removing
+  it('is empty?', function(){
+    assert(stack.isEmpty() === true);
+  });
 
-// { Test if the stack is empty
-assert.deepEqual(emptyStack.isEmpty(), true)
-assert.deepEqual(bookStack.isEmpty(), false)
-// } Test if the stack is empty
+  it('adds an item to the stack (push)', function(){
+    stack.push('17');
+    assert(stack.toString() === '17');
+    assert(stack.isEmpty() === false);
+  });
 
-// { Remove all elements
-assert.deepEqual(emptyStack.clear(), true)
-assert.deepEqual(bookStack.clear(), true)
-assert.deepEqual(emptyStack.isEmpty(), true)
-assert.deepEqual(bookStack.isEmpty(), true)
-// } Remove all elements
+  it('removes the top element (pop)', function(){
+    stack.push('car');
+    stack.pop();
+    assert(stack.isEmpty() === true);
+  });
 
-// End
-console.log('Test Stack OK')
+  it('returns the top without removing (peek)', function(){
+    stack.push('stack');
+    assert(stack.peek() === 'stack');
+    assert(stack.isEmpty() === false);
+    assert(stack.toString() === 'stack');
+  });
+
+  it('removes all elements (clear)', function(){
+    assert(stack.isEmpty() === true);
+    stack.push('x filez');
+    assert(stack.isEmpty() === false);
+    stack.clear();
+    assert(stack.isEmpty() === true);
+  });
+});
