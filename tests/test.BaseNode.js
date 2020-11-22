@@ -3,8 +3,6 @@
 const Node = require('../src/BaseNode.js');
 const assert = require('assert').strict;
 
-console.log(Node);
-
 describe('testing BaseNode', function(){
   let testNode, otherNode;
 
