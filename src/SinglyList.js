@@ -1,6 +1,6 @@
 'use strict';
 
-const Node = require('./Node.js');
+const Node = require('./BaseNode.js');
 
 const checkPosition = function(pos, max){
 	if (pos < 1 || pos > max)

@@ -1,6 +1,6 @@
 'use strict';
 
-const Node = require('./Node.js');
+const Node = require('./BaseNode.js');
 
 class Queue{
   #first = null;

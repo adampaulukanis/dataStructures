@@ -1,6 +1,12 @@
 'use strict';
 
-const Node = require('../src/Node.js');
+class Node extends require('./BaseNode.js'){
+	priority;
+	constructor(data, priority = 0){
+		super(data);
+		this.priority = priority;
+	}
+}
 
 /*
  * Priority Queue

@@ -1,10 +1,11 @@
 'use strict';
 
-const { Node } = require('..');
+const Node = require('../src/BaseNode.js');
 const assert = require('assert').strict;
 
+console.log(Node);
 
-describe('testing Node', function(){
+describe('testing BaseNode', function(){
   let testNode, otherNode;
 
   beforeEach(function(){
@@ -25,17 +26,4 @@ describe('testing Node', function(){
     testNode.next = otherNode;
     assert(testNode.next === otherNode);
   });
-
-  it('has the priority field needed by PriorityQueue', function(){
-    assert(testNode.priority === 0);
-  });
-
-  it('has a pointer to the previous node needed by DoublyList', function(){
-    otherNode = new Node('second node');
-    testNode.previous = otherNode;
-    assert(testNode.previous === otherNode);
-  });
-
-  // TODO: parent and children needed by Tree
-  it('has parent and children needed by Tree');
 });

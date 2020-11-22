@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-  Node: require('./src/Node.js'),
+  Node: require('./src/BaseNode.js'),
   Queue: require('./src/Queue.js'),
   PriorityQueue: require('./src/PriorityQueue.js'),
   Stack: require('./src/Stack'),

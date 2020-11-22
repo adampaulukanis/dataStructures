@@ -62,3 +62,6 @@ v14.1.0
 
 ### SinglyList members
 `size, isEmpty(), toString(), insert(data), insert(pos, data), searchAt(pos), removeAt(pos)`
+
+### DoublyList members
+`size, isEmpty()`

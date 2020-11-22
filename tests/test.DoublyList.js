@@ -1,6 +1,7 @@
 'use strict';
 
 const { DoublyList } = require('..');
+const assert = require('assert').strict;
 
 describe('testing DoublyList', function(){
   let list;
@@ -13,5 +14,11 @@ describe('testing DoublyList', function(){
     list = null;
   });
 
-  it('works');
+  it('is empty?', function(){
+    assert(list.isEmpty() === true);
+  });
+
+  it('gets the size', function(){
+    assert(list.size === 0);
+  });
 });

@@ -2,7 +2,7 @@
 'use strict';
 
 const assert = require('assert');
-const { Tree, Node } = require('..');
+// const { Tree, Node } = require('..');
 
 describe('testing Tree', function () {
 	it('Traverses the tree with depth-first search',);
