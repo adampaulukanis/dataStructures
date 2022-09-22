@@ -2,9 +2,9 @@
 
 const { Queue, Node } = require('..');
 
-function Treee(){};
+function Tree(){};
 
-Treee.prototype.traverseDF = function (callback) {
+Tree.prototype.traverseDF = function (callback) {
     (function recurse (currentNode) {
         for (let i = 0, length = currentNode.children.length; i < length; i++) {
             recurse(currentNode.children[i]);
@@ -13,25 +13,25 @@ Treee.prototype.traverseDF = function (callback) {
     })(this._root);
 }
 
-Treee.prototype.traverseBF = function (callback) {
+Tree.prototype.traverseBF = function (callback) {
     let queue = new Queue();
     // let counter = 0
     queue.enqueue(this._root);
-    let currentTreee = queue.dequeue();
-    while (currentTreee) {
-        for (let i = 0, length = currentTreee.data.children.length; i < length; i++) {
-            queue.enqueue(currentTreee.data.children[i]);
+    let currentTree = queue.dequeue();
+    while (currentTree) {
+        for (let i = 0, length = currentTree.data.children.length; i < length; i++) {
+            queue.enqueue(currentTree.data.children[i]);
         }
-        callback(currentTreee);
-        currentTreee = queue.dequeue();
+        callback(currentTree);
+        currentTree = queue.dequeue();
     }
 }
 
-Treee.prototype.contains = function (callback, traversal) {
+Tree.prototype.contains = function (callback, traversal) {
     traversal.call(this, callback);
 }
 
-Treee.prototype.add = function (data, toData, traversal) {
+Tree.prototype.add = function (data, toData, traversal) {
     let child = new Node(data);
     let parent = null;
     let callback = function (node) {
@@ -50,7 +50,7 @@ Treee.prototype.add = function (data, toData, traversal) {
     }
 }
 
-Treee.prototype.remove = function (data, fromData, traversal) {
+Tree.prototype.remove = function (data, fromData, traversal) {
     // let tree = this
     let parent = null;
     let childToRemove = null;
