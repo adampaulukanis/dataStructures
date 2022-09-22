@@ -8,24 +8,25 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "mocha tests/*.js"
+    "test": "./node_modules/mocha/bin/mocha.js tests/*.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/adam17/dataStructures.git"
+    "url": "git+https://github.com/adampaulukanis/dataStructures.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/adam17/dataStructures/issues"
+    "url": "https://github.com/adampaulukanis/dataStructures/issues"
   },
-  "homepage": "https://github.com/adam17/dataStructures#readme",
+  "homepage": "https://github.com/adampaulukanis/dataStructures#readme",
   "devDependencies": {
     "standard": "^12.0.1"
   },
   "dependencies": {
     "acorn": "^7.1.1",
     "minimist": ">=0.2.1",
+    "mocha": "^10.0.0",
     "nodemon": "^2.0.3"
   }
 }
