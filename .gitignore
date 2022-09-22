@@ -59,5 +59,8 @@ typings/
 
 # next.js build output
 .next
-TODO.md
+
+# finally ignore these
 *.swp
+TODO.md
+tags
