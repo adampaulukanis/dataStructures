@@ -26,7 +26,7 @@
   "dependencies": {
     "acorn": "^7.1.1",
     "minimist": ">=0.2.1",
-    "mocha": "^10.0.0",
+    "mocha": "^10.8.2",
     "nodemon": "^2.0.3"
   }
 }
