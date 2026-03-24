@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/adampaulukanis/dataStructures#readme",
   "devDependencies": {
-    "standard": "^12.0.1"
+    "standard": "^17.1.2"
   },
   "dependencies": {
     "acorn": "^7.1.1",
